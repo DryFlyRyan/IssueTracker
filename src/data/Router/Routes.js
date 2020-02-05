@@ -10,6 +10,6 @@ export const routeMap = {
     path: '/',
   },
   [REPOS_PAGE]: {
-    path: '/repos',
+    path: '/repos/:repoId?/:issueId?',
   },
 };

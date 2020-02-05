@@ -1,10 +1,17 @@
+import repos from './_mocks/repos.mock';
+
+const token = process.env.NODE_ENV === 'development'
+  ? (process.env.API_KEY || '')
+  : '';
+
+
 export default {
   error: {},
   router: {
     page: '/',
   },
   user: {
-    token: 'f33c1842d458baea1bbd08031ee48ecc5e521edf',
+    token,
   },
-  repos: [],
+  repos,
 };

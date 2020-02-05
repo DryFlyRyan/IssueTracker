@@ -8,7 +8,7 @@ const {
 export default (state = initialState.repos, action = {}) => {
   switch (action.type) {
     case COMMIT_REPOS: {
-      return { ...action.payload.repos };
+      return action.payload.repos;
     }
     default: {
       return state;
