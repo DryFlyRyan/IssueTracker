@@ -1,0 +1,32 @@
+# mac filesystem
+.DS_Store
+
+# webstorm
+.idea/
+
+.env
+
+# built files
+dist/
+
+# self explanatory
+node_modules/
+
+# test coverage output
+coverage/
+
+# eff you, yarn error logs
+yarn-error.log
+
+# the appPackageList should not be included as it is really a build artifact
+appPackagesList.json
+
+# screenshots of failed tests
+screenshots/
+
+# visual studio code
+.vscode/
+
+# artifacts (mostly for testing)
+artifact.zip
+artifact/

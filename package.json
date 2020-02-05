@@ -1,0 +1,182 @@
+{
+  "name": "@cake/renewal-front-end-app",
+  "contributors": [
+    {
+      "name": "Ryan Douglas",
+      "email": "ryan.douglas@cakeinsure.com"
+    },
+    {
+      "name": "Joshua Norman",
+      "email": "joshua.norman@cakeinsure.com"
+    },
+    {
+      "name": "Lonnie Moy",
+      "email": "lonnie.moy@cakeinsure.com"
+    },
+    {
+      "name": "Eli Parkhurst",
+      "email": "eli.parkhurst@cakeinsure.com"
+    }
+  ],
+  "version": "0.0.2",
+  "description": "Renewal app",
+  "engines": {
+    "npm": ">=4"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "jest --env=jsdom --coverage",
+    "test:watch": "jest --watch --env=jsdom --no-cache"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "history": "^4.7.2",
+    "moment": "^2.22.2",
+    "qs": "^6.6.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-first-router": "^2.1.1",
+    "redux-first-router-link": "^2.1.1",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.1.2",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.6",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^0.1.1",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "adm-zip": "^0.4.13",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-named-asset-import": "^0.3.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.18",
+    "babel-preset-react-app": "^7.0.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "chalk": "^2.4.1",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^6.1.0",
+    "dotenv-expand": "4.2.0",
+    "dotenv-webpack": "^1.5.7",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "express": "^4.16.4",
+    "file-loader": "1.1.6",
+    "fs-extra": "3.0.1",
+    "html-webpack-plugin": "4.0.0-alpha.2",
+    "http-errors": "^1.7.2",
+    "jade": "^1.11.0",
+    "jest": "^23.6.0",
+    "jest-css-modules": "^1.1.0",
+    "jest-image-snapshot": "^2.7.0",
+    "jsforce-metadata-tools": "^1.3.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.3.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "pnp-webpack-plugin": "^1.2.1",
+    "postcss-safe-parser": "^4.0.1",
+    "react-dev-utils": "^7.0.0",
+    "react-hot-loader": "^4.3.4",
+    "redux-devtools": "^3.4.1",
+    "redux-devtools-dock-monitor": "^1.1.3",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-devtools-log-monitor": "^1.4.0",
+    "redux-devtools-themes": "^1.0.0",
+    "redux-saga-test-plan": "^3.7.0",
+    "sinon": "^6.3.4",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "terser-webpack-plugin": "^1.2.1",
+    "url-loader": "0.6.2",
+    "webpack": "4.19.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "2.9.4",
+    "webpack-manifest-plugin": "2.0.4",
+    "workbox-webpack-plugin": "^3.6.3"
+  },
+  "keywords": [],
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "setupFiles": [
+      "<rootDir>/test/config/enzymeTestAdapterSetup.js"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/config",
+      "<rootDir>/demo-server",
+      "<rootDir>/public",
+      "<rootDir>/scripts",
+      "<rootDir>/test",
+      "<rootDir>/src/app/Router",
+      "actions.js",
+      "mockData.js",
+      "index.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/config",
+      "<rootDir>/demo-server",
+      "<rootDir>/public",
+      "<rootDir>/scripts",
+      "<rootDir>/test"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      ".*": "<rootDir>/node_modules/jest-css-modules",
+      "^.+\\.svg$": "<rootDir>/test/xformsAndMocks/svgTransform.js"
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js}"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/xformsAndMocks/fileMock.js",
+      "^testUtils(.*)$": "<rootDir>/src/utils/testUtils",
+      "^stateData(.*)$": "<rootDir>/src/state$1",
+      "^stateMocks(.*)$": "<rootDir>/src/state/_mocks/index.js",
+      "^constants(.*)$": "<rootDir>/src/constants$1",
+      "^actionCreators": "<rootDir>/src/data/actionCreators.js",
+      "^actionConstants(.*)$": "<rootDir>/src/constants/actions/index.js",
+      "^stringConstants(.*)$": "<rootDir>/src/constants/strings.js",
+      "^commonStyles(.*)$": "<rootDir>src/app/app.styles.js",
+      "^components(.*)$": "<rootDir>/src/app/components$1"
+    },
+    "testMatch": [
+      "<rootDir>/src/**/*.unit.spec.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@cake)"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

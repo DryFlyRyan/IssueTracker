@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "module": "commonjs",
+    "baseUrl": ".",
+    "paths": {
+      "actionCreators": ["src/data/actionCreators.js"],
+      "actionConstants": ["src/constants/actions/index.js"],
+      "components/*": ["src/app/components/*"],
+      "constants/*": ["src/constants/*"],
+      "data/*": ["src/data/*"],
+      "src/*": ["src/*"],
+      "stateData/*": ["src/state/index.js"],
+      "views/*": ["src/app/components/views/*"]
+    }
+  },
+  "exclude": [
+    "config",
+    "dist",
+    "node_modules",
+    "public",
+    "scripts"
+  ],
+  "include": [
+    "src/**/*",
+  ]
+}
