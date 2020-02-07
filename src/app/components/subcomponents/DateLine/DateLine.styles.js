@@ -15,12 +15,14 @@ export const DateLineWrapper = styled.div`
 `;
 
 export const DateLineTitle = styled.p`
-  font-size: 12pt;
+  font-family: 'Maxwell';
+  font-size: 1.25rem;
   margin: 0;
   color: rgb(100, 100, 100);
 `;
 
 export const DateLineData = styled.p`
   margin: 0;
-  /* color: rgb(); */
+  font-family: 'Maxwell';
+  font-size: 1.5rem;
 `;

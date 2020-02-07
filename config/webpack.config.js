@@ -27,7 +27,7 @@ module.exports = function (webpackEnv) { // eslint-disable-line func-names
   const isEnvDevelopment = !isEnvProduction; // little sloppy, yes - but considering any non-prod build to be dev
   const publicPath = isEnvProduction
     ? paths.servedPath
-    : isEnvDevelopment && '/';
+    : 'http://localhost:3000';
   const publicUrl = publicPath.slice(0, -1);
   const env = getClientEnvironment(publicUrl);
 
@@ -133,6 +133,19 @@ module.exports = function (webpackEnv) { // eslint-disable-line func-names
           use: ['babel-loader'],
         },
         {
+          test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                limit: 10000,
+                mimetype: 'application/font-woff',
+              },
+            },
+          ],
+        },
+        {
           test: /\.eot(\?v=\d+.\d+.\d+)?$/,
           use: [
             {
@@ -192,6 +205,13 @@ module.exports = function (webpackEnv) { // eslint-disable-line func-names
               },
             },
           ],
+        },
+        {
+          loader: require.resolve('file-loader'),
+          exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+          options: {
+            name: 'static/media/[name].[hash:8].[ext]',
+          },
         },
       ],
     },

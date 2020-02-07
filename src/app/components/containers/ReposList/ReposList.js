@@ -5,7 +5,7 @@ import RepoCard from 'components/subcomponents/RepoCard';
 
 import { ReposListWrapper } from './ReposList.styles';
 
-const renderRepoCards = (repos, activeRepo, setActiveRepo) => repos.map((repo) => {
+const buildRepoCards = (repos, activeRepo, setActiveRepo) => repos.map((repo) => {
   return (
     <RepoCard
       key={repo.id}
@@ -25,7 +25,7 @@ const ReposList = ({
   repos,
 }) => {
   const RenderedRepos = useMemo(
-    () => renderRepoCards(repos, activeRepo, setActiveRepo),
+    () => buildRepoCards(repos, activeRepo, setActiveRepo),
     [repos, activeRepo],
   );
 

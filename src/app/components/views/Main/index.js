@@ -6,7 +6,10 @@ import actionCreators from 'actionCreators';
 import MainView from './MainView';
 
 const { REPOS_PAGE } = actionConstants;
-const { goToPage } = actionCreators;
+const {
+  goToPage,
+  fetchIssues,
+} = actionCreators;
 
 const ConnectedMainView = (props) => <MainView {...props} />;
 
@@ -20,7 +23,15 @@ const mapStateToProps = ({ location }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setActiveRepo: (repoId) => dispatch(goToPage(REPOS_PAGE, { repoId })),
+  setActiveRepo: (repoId) => {
+    dispatch(goToPage(REPOS_PAGE, { repoId }));
+    dispatch(fetchIssues({ repoId }));
+  },
+  setActiveIssue: (repoId) => {
+    return (issueId) => {
+      dispatch(goToPage(REPOS_PAGE, { repoId, issueId }));
+    };
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectedMainView);

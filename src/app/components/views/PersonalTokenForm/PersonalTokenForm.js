@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import StripesBackground from 'components/subcomponents/StripesBackground';
+
+import {
+  FormTitle,
+  FormWrapper,
+  PTForm,
+  PTFormLayer1,
+  PTFormLayer2,
+  SubmitButton,
+  PTInput,
+} from './PersonalTokenForm.styles';
+
 const PersonalTokenForm = ({
   token = '',
   submitPersonalToken,
@@ -13,24 +25,27 @@ const PersonalTokenForm = ({
   };
 
   return (
-    <section>
-      <form>
-        <h3>
-          Please enter your GitHub personal token.
-        </h3>
-        <input
+    <FormWrapper>
+      <StripesBackground />
+      <PTForm>
+        <PTFormLayer1 />
+        <PTFormLayer2 />
+        <FormTitle>
+          Please enter your GitHub personal token
+        </FormTitle>
+        <PTInput
           value={personalToken}
           onChange={(e) => setPersonalToken(e.target.value)}
         />
-        <button
+        <SubmitButton
           type="submit"
           disabled={!personalToken.length}
           onClick={handleSubmit}
         >
           Load User Repos
-        </button>
-      </form>
-    </section>
+        </SubmitButton>
+      </PTForm>
+    </FormWrapper>
   );
 };
 

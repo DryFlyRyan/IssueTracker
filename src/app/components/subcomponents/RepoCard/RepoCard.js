@@ -8,6 +8,8 @@ import {
   RepoCardTitle,
   RepoCardTopLine,
   DateContainer,
+  RepoCardBottomLayer1,
+  RepoCardBottomLayer2,
 } from './RepoCard.styles';
 
 const RepoCard = ({
@@ -24,6 +26,8 @@ const RepoCard = ({
       isActive={isActive}
       onClick={onClick}
     >
+      <RepoCardBottomLayer1 />
+      <RepoCardBottomLayer2 />
       <RepoCardTopLine>
         <RepoCardTitle>
           {name}

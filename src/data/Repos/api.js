@@ -5,7 +5,7 @@ class ReposApi {
     this.api = api;
   }
 
-  getUserRepos = (options) => this.api.requestGitHub('user/repos', options)
+  getUserRepos = (options) => this.api.requestGitHub('user/repos?sort=created', options)
 }
 
 export default new ReposApi(RootApi);

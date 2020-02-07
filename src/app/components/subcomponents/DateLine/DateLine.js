@@ -15,7 +15,7 @@ const DateLine = ({ isCreated, date }) => (
     </DateLineTitle>
     <DateLineData>
       {isCreated
-        ? moment(date).format('MMMM Do, YYYY')
+        ? moment(date).format('L')
         : moment(date).fromNow()}
     </DateLineData>
   </DateLineWrapper>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ReposListWrapper = styled.section`
+export const IssuesListWrapper = styled.section`
   width: 100%;
   max-width: 600px;
 `;

@@ -9,8 +9,4 @@ const mapStateToProps = ({ repos }) => ({
   repos,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConnectedReposList);
+export default connect(mapStateToProps)(ConnectedReposList);
