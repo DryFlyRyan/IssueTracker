@@ -47,6 +47,7 @@ module.exports = {
   actionConstants: resolveApp('src/constants/actions/index'),
   constants: resolveApp('src/constants'),
   data: resolveApp('src/data'),
+  globalStyles: resolveApp('src/app/global.styles'),
   components: resolveApp('src/app/components'),
   subcomponents: resolveApp('src/app/components/subcomponents'),
   views: resolveApp('src/app/components/views'),

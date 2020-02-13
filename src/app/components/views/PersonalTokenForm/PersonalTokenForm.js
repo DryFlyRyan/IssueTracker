@@ -51,6 +51,7 @@ const PersonalTokenForm = ({
 
 PersonalTokenForm.propTypes = {
   token: PropTypes.string,
+  submitPersonalToken: PropTypes.func.isRequired,
 };
 
 PersonalTokenForm.defaultProps = {

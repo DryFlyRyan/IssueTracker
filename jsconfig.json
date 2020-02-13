@@ -11,6 +11,7 @@
       "components/*": ["src/app/components/*"],
       "constants/*": ["src/constants/*"],
       "data/*": ["src/data/*"],
+      "globalStyles": ["src/app/global.styles"],
       "src/*": ["src/*"],
       "stateData/*": ["src/state/index.js"],
       "views/*": ["src/app/components/views/*"]

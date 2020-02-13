@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 import DateLine from 'components/subcomponents/DateLine';
 
 import {
-  RepoCardWrapper,
-  RepoCardTitle,
-  RepoCardTopLine,
+  CardTitle,
   DateContainer,
+} from 'globalStyles';
+
+import {
+  RepoCardWrapper,
+  RepoCardTopLine,
   RepoCardBottomLayer1,
   RepoCardBottomLayer2,
 } from './RepoCard.styles';
@@ -29,9 +32,9 @@ const RepoCard = ({
       <RepoCardBottomLayer1 />
       <RepoCardBottomLayer2 />
       <RepoCardTopLine>
-        <RepoCardTitle>
+        <CardTitle>
           {name}
-        </RepoCardTitle>
+        </CardTitle>
       </RepoCardTopLine>
       <DateContainer>
         <DateLine

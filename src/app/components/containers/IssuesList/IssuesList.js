@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import IssueCard from 'components/subcomponents/IssueCard';
-import { IssuesListWrapper } from './IssuesList.styles';
+import { ListWrapper } from 'globalStyles';
 
 const buildIssueCards = (issues, activeIssue, setActiveIssue) => issues.map((issue) => {
   return (
@@ -35,9 +35,9 @@ const IssuesList = ({
   );
 
   return (
-    <IssuesListWrapper>
+    <ListWrapper>
       {RenderedIssues}
-    </IssuesListWrapper>
+    </ListWrapper>
   );
 };
 

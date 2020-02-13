@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import ReposList from 'components/containers/ReposList';
 import IssuesList from 'components/containers/IssuesList';
 
-import { MainViewWrapper } from './MainView.styles';
+import {
+  MainViewWrapper,
+  ListOuterContainer,
+  ListMiddleContainer,
+  ListContentContainer,
+} from './MainView.styles';
 
 const MainView = ({
   activeRepo,
@@ -14,15 +19,21 @@ const MainView = ({
 }) => {
   return (
     <MainViewWrapper>
-      <ReposList
-        activeRepo={activeRepo}
-        setActiveRepo={setActiveRepo}
-      />
-      <IssuesList
-        activeRepo={activeRepo}
-        activeIssue={activeIssue}
-        setActiveIssue={setActiveIssue(activeRepo)}
-      />
+      <ListOuterContainer>
+        <ListMiddleContainer>
+          <ListContentContainer>
+            <ReposList
+              activeRepo={activeRepo}
+              setActiveRepo={setActiveRepo}
+            />
+            <IssuesList
+              activeRepo={activeRepo}
+              activeIssue={activeIssue}
+              setActiveIssue={setActiveIssue(activeRepo)}
+            />
+          </ListContentContainer>
+        </ListMiddleContainer>
+      </ListOuterContainer>
     </MainViewWrapper>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import RepoCard from 'components/subcomponents/RepoCard';
 
-import { ReposListWrapper } from './ReposList.styles';
+import { ListWrapper } from 'globalStyles';
 
 const buildRepoCards = (repos, activeRepo, setActiveRepo) => repos.map((repo) => {
   return (
@@ -30,9 +30,9 @@ const ReposList = ({
   );
 
   return (
-    <ReposListWrapper>
+    <ListWrapper>
       {RenderedRepos}
-    </ReposListWrapper>
+    </ListWrapper>
   );
 };
 

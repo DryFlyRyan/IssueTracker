@@ -4,13 +4,18 @@ import PropTypes from 'prop-types';
 import DateLine from 'components/subcomponents/DateLine';
 
 import {
+  DateContainer,
+} from 'globalStyles';
+
+import {
   IssueCardWrapper,
+  IssueCardMiddleLayer,
+  IssueCardBottomLayer,
+  IssueCardTitle,
   AvatarWrapper,
   ContentWrapper,
-  DateContainer,
-  RepoCardTitle,
-  RepoCardTopLine,
   AvatarImage,
+  TitleWrapper,
 } from './IssueCard.styles';
 
 const IssueCard = ({
@@ -24,17 +29,19 @@ const IssueCard = ({
     <IssueCardWrapper
       onClick={onClick}
     >
+      <IssueCardMiddleLayer />
+      <IssueCardBottomLayer />
       <AvatarWrapper>
         <AvatarImage
           avatarURL={avatarLink}
         />
       </AvatarWrapper>
       <ContentWrapper>
-        <RepoCardTopLine>
-          <RepoCardTitle>
+        <TitleWrapper>
+          <IssueCardTitle>
             {title}
-          </RepoCardTitle>
-        </RepoCardTopLine>
+          </IssueCardTitle>
+        </TitleWrapper>
         <DateContainer>
           <DateLine
             isCreated

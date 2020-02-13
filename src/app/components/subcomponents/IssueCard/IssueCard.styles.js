@@ -1,24 +1,24 @@
 import styled from 'styled-components';
+import {
+  CardWrapper,
+  CardMiddleLayer,
+  CardBottomLayer,
+  CardTitle,
+} from 'globalStyles';
 
-export const IssueCardWrapper = styled.div`
-  background: ${(props) => props.isActive ? '#89DAD1' : '#F1ECCE'};
-  transition: all .1s ease-in;
-  
-  :hover, :active {
-    background: #89DAD1;
-  }
-  
-  cursor: pointer;
-  max-width: 100%;
-  border-radius: 5px;
-  margin: .625rem;
-  border: 1px solid black;
-  padding: .625rem;
-
+export const IssueCardWrapper = styled(CardWrapper)`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
+`;
+
+export const IssueCardMiddleLayer = styled(CardMiddleLayer)`
+  border-color: #E89B1A;
+`;
+
+export const IssueCardBottomLayer = styled(CardBottomLayer)`
+  border-color: #D35716;
 `;
 
 export const AvatarWrapper = styled.div`
@@ -27,6 +27,8 @@ export const AvatarWrapper = styled.div`
   width: 75px;
   max-width: 75px;
   margin-right: 15px;
+  margin-left: 20px;
+  transform: skew(20deg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,32 +40,30 @@ export const AvatarImage = styled.div`
   background: ${(props) => `url(${props.avatarURL}) bottom center no-repeat, transparent`};
   background-size: contain;
   border-radius: 50%;
-  max-width: 50px;
-  min-width: 50px;
-  max-height: 50px;
-  min-height: 50px;
+  max-width: 70px;
+  min-width: 70px;
+  max-height: 70px;
+  min-height: 70px;
   box-sizing: border-box;
   margin: 5px;
 `;
 
+export const TitleWrapper = styled.div`
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 export const ContentWrapper = styled.div`
   flex: 1 1 100%;
+  overflow: hidden;
 `;
 
-export const RepoCardTopLine = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-`;
-
-export const RepoCardTitle = styled.h4`
-  font-family: 'Maxwell';
-  margin: 0;
-`;
-
-export const DateContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+export const IssueCardTitle = styled(CardTitle)`
+  font-family: 'Maxwell Bold';
+  font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;

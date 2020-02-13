@@ -13,6 +13,6 @@ export default {
   user: {
     token,
   },
-  repos,
+  repos: [],
   issues: {},
 };
