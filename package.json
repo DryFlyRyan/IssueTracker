@@ -1,23 +1,9 @@
 {
-  "name": "@cake/renewal-front-end-app",
-  "contributors": [
-    {
-      "name": "Ryan Douglas",
-      "email": "ryan.douglas@cakeinsure.com"
-    },
-    {
-      "name": "Joshua Norman",
-      "email": "joshua.norman@cakeinsure.com"
-    },
-    {
-      "name": "Lonnie Moy",
-      "email": "lonnie.moy@cakeinsure.com"
-    },
-    {
-      "name": "Eli Parkhurst",
-      "email": "eli.parkhurst@cakeinsure.com"
-    }
-  ],
+  "name": "@dryflyryan/issuetracker",
+  "author": {
+    "name": "Ryan Douglas",
+    "email": "ryan@luckydogdigital.com"
+  },
   "version": "0.0.2",
   "description": "Renewal app",
   "engines": {
@@ -25,7 +11,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "NODE_ENV=production webpack --config config/webpack.config.js",
     "test": "jest --env=jsdom --coverage",
     "test:watch": "jest --watch --env=jsdom --no-cache"
   },
@@ -115,64 +101,6 @@
     "webpack-dev-server": "2.9.4",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "^3.6.3"
-  },
-  "keywords": [],
-  "jest": {
-    "verbose": true,
-    "testURL": "http://localhost/",
-    "setupFiles": [
-      "<rootDir>/test/config/enzymeTestAdapterSetup.js"
-    ],
-    "modulePaths": [
-      "<rootDir>/src"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/config",
-      "<rootDir>/demo-server",
-      "<rootDir>/public",
-      "<rootDir>/scripts",
-      "<rootDir>/test",
-      "<rootDir>/src/app/Router",
-      "actions.js",
-      "mockData.js",
-      "index.js"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>/config",
-      "<rootDir>/demo-server",
-      "<rootDir>/public",
-      "<rootDir>/scripts",
-      "<rootDir>/test"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      ".*": "<rootDir>/node_modules/jest-css-modules",
-      "^.+\\.svg$": "<rootDir>/test/xformsAndMocks/svgTransform.js"
-    },
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.{js}"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/xformsAndMocks/fileMock.js",
-      "^testUtils(.*)$": "<rootDir>/src/utils/testUtils",
-      "^stateData(.*)$": "<rootDir>/src/state$1",
-      "^stateMocks(.*)$": "<rootDir>/src/state/_mocks/index.js",
-      "^constants(.*)$": "<rootDir>/src/constants$1",
-      "^actionCreators": "<rootDir>/src/data/actionCreators.js",
-      "^actionConstants(.*)$": "<rootDir>/src/constants/actions/index.js",
-      "^stringConstants(.*)$": "<rootDir>/src/constants/strings.js",
-      "^commonStyles(.*)$": "<rootDir>src/app/app.styles.js",
-      "^components(.*)$": "<rootDir>/src/app/components$1"
-    },
-    "testMatch": [
-      "<rootDir>/src/**/*.unit.spec.js"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!@cake)"
-    ]
   },
   "browserslist": [
     ">0.2%",
