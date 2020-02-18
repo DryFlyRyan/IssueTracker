@@ -8,7 +8,6 @@ import {
 
 export const IssueCardOuterWrapper = styled.div`
     opacity: ${(props) => props.isDragging ? '0' : '1'};
-    ${props => props.isDragging ? 'transform: skew(20deg);' : ''}
     background: transparent;
 `;
 
