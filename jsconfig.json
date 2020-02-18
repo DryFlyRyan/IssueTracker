@@ -14,7 +14,8 @@
       "globalStyles": ["src/app/global.styles"],
       "src/*": ["src/*"],
       "stateData/*": ["src/state/index.js"],
-      "views/*": ["src/app/components/views/*"]
+      "views/*": ["src/app/components/views/*"],
+      "utils": ["src/utils/index"]
     }
   },
   "exclude": [

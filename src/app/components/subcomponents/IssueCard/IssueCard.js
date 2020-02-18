@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useDrag, useDrop } from 'react-dnd';
 
 import DateLine from 'components/subcomponents/DateLine';
 
@@ -8,6 +9,7 @@ import {
 } from 'globalStyles';
 
 import {
+  IssueCardOuterWrapper,
   IssueCardWrapper,
   IssueCardMiddleLayer,
   IssueCardBottomLayer,
@@ -18,41 +20,76 @@ import {
   TitleWrapper,
 } from './IssueCard.styles';
 
+const type = 'CARD';
+
 const IssueCard = ({
   avatarLink,
   title,
   created,
   updated,
   onClick,
+  id,
+  moveIssue,
 }) => {
+  const ref = useRef(null);
+
+  const [, drop] = useDrop({
+    accept: type,
+    hover(item) {
+      const draggedId = item.id;
+      const hoveredId = id;
+
+      if (draggedId === hoveredId) {
+        return;
+      }
+
+      moveIssue({ draggedId, hoveredId });
+    },
+  });
+
+  const [{ isDragging }, drag] = useDrag({
+    item: { type, id },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+
+  drag(drop(ref));
+
   return (
-    <IssueCardWrapper
-      onClick={onClick}
+    <IssueCardOuterWrapper
+      ref={ref}
+      isDragging={isDragging}
     >
-      <IssueCardMiddleLayer />
-      <IssueCardBottomLayer />
-      <AvatarWrapper>
-        <AvatarImage
-          avatarURL={avatarLink}
-        />
-      </AvatarWrapper>
-      <ContentWrapper>
-        <TitleWrapper>
-          <IssueCardTitle>
-            {title}
-          </IssueCardTitle>
-        </TitleWrapper>
-        <DateContainer>
-          <DateLine
-            isCreated
-            date={created}
+      <IssueCardWrapper
+        onClick={onClick}
+        isDragging={isDragging}
+      >
+        <IssueCardMiddleLayer />
+        <IssueCardBottomLayer />
+        <AvatarWrapper>
+          <AvatarImage
+            avatarURL={avatarLink}
           />
-          <DateLine
-            date={updated}
-          />
-        </DateContainer>
-      </ContentWrapper>
-    </IssueCardWrapper>
+        </AvatarWrapper>
+        <ContentWrapper>
+          <TitleWrapper>
+            <IssueCardTitle>
+              {title}
+            </IssueCardTitle>
+          </TitleWrapper>
+          <DateContainer>
+            <DateLine
+              isCreated
+              date={created}
+            />
+            <DateLine
+              date={updated}
+            />
+          </DateContainer>
+        </ContentWrapper>
+      </IssueCardWrapper>
+    </IssueCardOuterWrapper>
   );
 };
 
@@ -62,6 +99,8 @@ IssueCard.propTypes = {
   created: PropTypes.string.isRequired,
   updated: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  moveIssue: PropTypes.func.isRequired,
 };
 
 export default IssueCard;

@@ -13,7 +13,6 @@ import {
 
 const MainView = ({
   activeRepo,
-  activeIssue,
   setActiveRepo,
   setActiveIssue,
 }) => {
@@ -26,11 +25,13 @@ const MainView = ({
               activeRepo={activeRepo}
               setActiveRepo={setActiveRepo}
             />
-            <IssuesList
-              activeRepo={activeRepo}
-              activeIssue={activeIssue}
-              setActiveIssue={setActiveIssue(activeRepo)}
-            />
+            {activeRepo
+              ? (
+                <IssuesList
+                  setActiveIssue={setActiveIssue(activeRepo)}
+                />
+              )
+              : null}
           </ListContentContainer>
         </ListMiddleContainer>
       </ListOuterContainer>
@@ -40,7 +41,6 @@ const MainView = ({
 
 MainView.propTypes = {
   activeRepo: PropTypes.number.isRequired,
-  activeIssue: PropTypes.number.isRequired,
   setActiveRepo: PropTypes.func.isRequired,
   setActiveIssue: PropTypes.func.isRequired,
 };

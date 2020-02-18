@@ -53,6 +53,7 @@ module.exports = {
   views: resolveApp('src/app/components/views'),
   src: resolveApp('src'),
   stateData: resolveApp('src/state/index.js'),
+  utils: resolveApp('src/utils/index'),
   // others
   appBuild: resolveApp('dist'),
   appHtml: resolveApp('public/index.html'),

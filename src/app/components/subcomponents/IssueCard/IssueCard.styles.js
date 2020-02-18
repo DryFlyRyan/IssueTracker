@@ -6,6 +6,12 @@ import {
   CardTitle,
 } from 'globalStyles';
 
+export const IssueCardOuterWrapper = styled.div`
+    opacity: ${(props) => props.isDragging ? '0' : '1'};
+    ${props => props.isDragging ? 'transform: skew(20deg);' : ''}
+    background: transparent;
+`;
+
 export const IssueCardWrapper = styled(CardWrapper)`
   display: flex;
   flex-direction: row;
