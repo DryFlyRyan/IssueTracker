@@ -29,7 +29,8 @@ const IssueCard = ({
   updated,
   onClick,
   id,
-  moveIssue,
+  handleDrag,
+  handleDrop,
 }) => {
   const ref = useRef(null);
 
@@ -43,7 +44,10 @@ const IssueCard = ({
         return;
       }
 
-      moveIssue({ draggedId, hoveredId });
+      handleDrag({ draggedId, hoveredId });
+    },
+    drop() {
+      handleDrop();
     },
   });
 
@@ -100,7 +104,8 @@ IssueCard.propTypes = {
   updated: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
-  moveIssue: PropTypes.func.isRequired,
+  handleDrag: PropTypes.func.isRequired,
+  handleDrop: PropTypes.func.isRequired,
 };
 
 export default IssueCard;

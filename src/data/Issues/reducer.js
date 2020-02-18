@@ -6,6 +6,7 @@ import { issueOrderer } from 'utils';
 const {
   COMMIT_ISSUES,
   COMMIT_REPOS,
+  UPDATE_ISSUE_ORDER,
 } = actionConstants;
 
 export default (state = initialState.issues, action = {}) => {
@@ -38,12 +39,20 @@ export default (state = initialState.issues, action = {}) => {
 
       return {
         ...state,
-        [repoId]: newIssueSet,
+        [repoId]: {
+          issueOrder: state[repoId].issueOrder,
+          issues: newIssueSet,
+        },
       };
     }
 
     case COMMIT_REPOS: {
       const { repos } = action.payload;
+
+      const stringifiedIssueOrders = localStorage.getItem('issueOrders');
+      const issueOrders = stringifiedIssueOrders
+        ? JSON.parse(stringifiedIssueOrders)
+        : {};
 
       const seededIssues = repos.reduce((issuesMap, repo) => {
         if (!repo.has_issues) {
@@ -51,7 +60,7 @@ export default (state = initialState.issues, action = {}) => {
         }
 
         issuesMap[repo.id] = {
-          issueOrder: [],
+          issueOrder: issueOrders[repo.id] || [],
           issues: [],
         };
 
@@ -64,6 +73,27 @@ export default (state = initialState.issues, action = {}) => {
         ...seededIssues,
       };
     }
+
+    case UPDATE_ISSUE_ORDER: {
+      const { repoId, issueOrder } = action.payload;
+
+      const stringifiedIssueOrders = localStorage.getItem('issueOrders');
+      const issueOrders = stringifiedIssueOrders
+        ? JSON.parse(stringifiedIssueOrders)
+        : {};
+
+      const newIssueOrders = { ...issueOrders, [repoId]: issueOrder };
+      localStorage.setItem('issueOrders', JSON.stringify(newIssueOrders));
+
+      return {
+        ...state,
+        [repoId]: {
+          ...state[repoId],
+          issueOrder,
+        },
+      };
+    }
+
     default: {
       return state;
     }

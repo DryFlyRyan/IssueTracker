@@ -2,16 +2,19 @@ import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DndProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import { isEqual } from 'lodash';
 
 import { issueOrderer } from 'utils';
 import IssueCard from 'components/subcomponents/IssueCard';
 import { ListWrapper } from 'globalStyles';
 
+/* HELPER FNS */
 const buildIssueCards = ({
   activeIssueSet,
   activeIssue,
   setActiveIssue,
-  moveIssue,
+  handleDrag,
+  handleDrop,
 }) => activeIssueSet.map((issue) => (
   <IssueCard
     key={issue.id}
@@ -22,7 +25,8 @@ const buildIssueCards = ({
     updated={issue.updated_at}
     onClick={() => setActiveIssue(issue.id)}
     id={issue.id}
-    moveIssue={moveIssue}
+    handleDrag={handleDrag}
+    handleDrop={handleDrop}
   />
 ));
 
@@ -30,6 +34,8 @@ const IssuesList = ({
   issues,
   activeIssue,
   setActiveIssue,
+  saveIssueOrder,
+  repoId,
 }) => {
   const {
     issues: activeIssueSet,
@@ -40,6 +46,7 @@ const IssuesList = ({
     return null;
   }
 
+  /* STATE CONTROLLERS */
   const [issueOrder, updateIssueOrder] = useState(savedIssueOrder);
 
   const orderedIssues = useMemo(() => issueOrderer({
@@ -48,7 +55,8 @@ const IssuesList = ({
   }),
   [activeIssueSet, issueOrder]);
 
-  const moveIssue = ({ draggedId, hoveredId }) => {
+  /* EVENT HANDLERS */
+  const handleDrag = ({ draggedId, hoveredId }) => {
     let draggedIndex = -1;
     let hoveredIndex = -1;
 
@@ -64,11 +72,21 @@ const IssuesList = ({
     updateIssueOrder(newOrder);
   };
 
+  const handleDrop = () => {
+    if (isEqual(savedIssueOrder, issueOrder)) {
+      return;
+    }
+
+    return saveIssueOrder({ repoId, issueOrder });
+  };
+
+  /* RENDER VARS */
   const RenderedIssues = buildIssueCards({
     activeIssueSet: orderedIssues,
     activeIssue,
     setActiveIssue,
-    moveIssue,
+    handleDrag,
+    handleDrop,
   });
 
   return (
@@ -90,7 +108,9 @@ IssuesList.propTypes = {
     ),
   }).isRequired,
   activeIssue: PropTypes.number,
+  repoId: PropTypes.number.isRequired,
   setActiveIssue: PropTypes.func.isRequired,
+  saveIssueOrder: PropTypes.func.isRequired,
 };
 
 IssuesList.defaultProps = {

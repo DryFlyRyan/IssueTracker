@@ -2,6 +2,7 @@ import actionConstants from 'actionConstants';
 
 const {
   COMMIT_ISSUES,
+  UPDATE_ISSUE_ORDER,
   FETCH_ISSUES,
   FETCH_ISSUES_FAILURE,
   FETCH_ISSUES_SUCCESS,
@@ -12,6 +13,14 @@ export const commitIssues = ({ repoId, issues }) => ({
   payload: {
     repoId,
     issues,
+  },
+});
+
+export const updateIssueOrder = ({ repoId, issueOrder }) => ({
+  type: UPDATE_ISSUE_ORDER,
+  payload: {
+    repoId,
+    issueOrder,
   },
 });
 
